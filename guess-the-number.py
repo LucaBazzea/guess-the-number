@@ -1,28 +1,28 @@
 import random
 
-def number_game():
+number = random.randint(1,30)
+print("Number range between 1 and 30")
+# print(number)
 
-    number = random.randint(1,55)
-    print("Number range between 1 and 55")
+tries = 0
 
-    # print(number)
+while tries < 5:
 
-    guess = int(input("Guess the number: "))
+    guess = input("Guess the number: ")
+    guess = int(guess)
 
-    while guess != number:
+    tries += 1
+    if guess > number:
+        print("Nope, Too high")
+    elif guess < number:
+        print("No, too low")
+    elif guess == number:
+        break
 
-        if guess > number:
-            print("Nope, Too high")
-            guess = int(input("Guess the number: "))
-        elif guess < number:
-            print("No, too low")
-            guess = int(input("Guess the number: "))
-        elif guess == number:
-            print("Correct!")
-        else:
-            print("That's not an option")
-
-number_game()
+if guess == number:
+    print("Correct!")
+elif guess != number:
+    print(f"Wrong, the number was {number}")
 
 # Stop game from crashing if a str is entered
 # Add an option to choose how big the number range is
